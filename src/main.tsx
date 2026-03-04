@@ -4,7 +4,8 @@ import { createRoot } from 'react-dom/client'
 // import { HooksApp } from './HooksApp'
 
 import './index.css'
-import { TrafficLightWithEffect } from './02-useEffect/TrafficLightWithEffect'
+// import { TrafficLightWithEffect } from './02-useEffect/TrafficLightWithEffect'
+import { TrafficLightWithHook } from './02-useEffect/TrafficLightWithHook'
 
 // import { TrafficLight } from './01-useState/TrafficLight'
 
@@ -13,7 +14,8 @@ createRoot(document.getElementById('root')!).render(
     {/* <HooksApp /> */}
     {/* <TrafficLight /> */}
 
-    <TrafficLightWithEffect />
+    {/* <TrafficLightWithEffect /> */}
+    <TrafficLightWithHook />
 
   </StrictMode>,
 )
