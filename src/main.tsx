@@ -10,7 +10,8 @@ import './index.css'
 // import { TrafficLight } from './01-useState/TrafficLight'
 // import { FocusScreen } from './04-FocusScreen/FocusScreen'
 
-import { TasksApp } from './05-useReducer/TaskApp'
+// import { TasksApp } from './05-useReducer/TaskApp'
+import { ScrambleWords } from './05-useReducer/ScrambleWords'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -24,6 +25,8 @@ createRoot(document.getElementById('root')!).render(
 
     {/* <FocusScreen /> */}
 
-    <TasksApp />
+    {/* <TasksApp /> */}
+
+    <ScrambleWords />
   </StrictMode>,
 )
