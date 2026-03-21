@@ -13,7 +13,7 @@ export interface ScrambleWordsState {
   totalWords: number,
 }
 
-export type ScrambleWordsAction =
+export type ScrambleWordsAction1 =
   | { type: 'acciones_a_implementar' }
 
 
@@ -68,17 +68,40 @@ export const getInitialState = (): ScrambleWordsState => {
   }
 };
 
-export type ScrambleWordsAction1 =
-  | { type: 'acciones_a_implementar1' }
-  | { type: 'acciones_a_implementar2' }
+export type ScrambleWordsAction =
+  | { type: 'SET_GUESS', payload: string }
+  | { type: 'CHECK_ANSWER', }
   | { type: 'acciones_a_implementar3' }
 
 
-export const scrambleWordsReducer = (state: ScrambleWordsState, action: ScrambleWordsAction) => {
+export const scrambleWordsReducer = (state: ScrambleWordsState, action: ScrambleWordsAction): ScrambleWordsState => {
   switch (action.type) {
-    // case value:
+    case 'SET_GUESS':
+      return {
+        ...state,
+        guess: action.payload.trim().toUpperCase(),
+      };
 
-    //   break;
+    case 'CHECK_ANSWER':
+      if (state.currentWord === state.guess) {
+        const newWords = state.words.slice(1);
+
+        return {
+          ...state,
+          words: newWords,
+          points: state.points + 1,
+          guess: '',
+          currentWord: newWords[0],
+          scrambleWord: scrambleWord(newWords[0],)
+        };
+      }
+
+      return {
+        ...state,
+        guess: '',
+        errorCounter: state.errorCounter + 1,
+        isGameOver: state.errorCounter + 1 >= state.maxAllowErrors,
+      };
 
     default:
       return state;
