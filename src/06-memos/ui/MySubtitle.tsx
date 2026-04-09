@@ -1,10 +1,12 @@
 import { memo } from "react";
 
 interface SubtitleProps {
-  subtitle: string
+  subtitle: string;
+
+  callMyAPI: () => void;
 }
 
-export const MySubtitle = memo(({ subtitle }: SubtitleProps) => {
+export const MySubtitle = memo(({ subtitle, callMyAPI }: SubtitleProps) => {
 
   console.log('mysubtitle re-render');
 
@@ -12,7 +14,9 @@ export const MySubtitle = memo(({ subtitle }: SubtitleProps) => {
     <>
       <h6 className="text-2xl font-bold">{subtitle}</h6>
 
-      <button className="bg-indigo-500 text-white px-2 py-1 rounded-md cursor-pointer">Llamar a función</button>
+      <button className="bg-indigo-500 text-white px-2 py-1 rounded-md cursor-pointer"
+        onClick={callMyAPI}
+      >Llamar a función</button>
     </>
   )
 })
